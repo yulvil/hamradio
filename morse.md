@@ -11,7 +11,7 @@
 | I | INDIA | ..  | BC | | ac ad ag ah al am ba be bi bk ca cd cf ci cl cm db di ed eh em fa fe fm ga gd ge ha he hf hg hi id if kc la le li ma mb md me mg mi |
 | J | JULIET | .--- | DUST | | anon ants anus arno aron arts arty asps atop aunt auto avon avow awry axon azov bonn bono bony boon boor boos boot bops born boru boss bout bows boys bozo brno brow brut buns bunt buoy burn burp burr burs burt bury buss bust busy buts butt buys buzz conn cons coon coop coos coot cops copy corn cory cost cosy cots coup cows cozy crop crow crux cruz cunt cups curs curt cusp cuss cuts cyst donn dons door dopy dory dots dour down drop drys dunn duns duos dust duty enos envy eons eros errs espy eton euro expo font foot fops fort four foxy furs fury fuss futz fuzz gnus goon goop gory gout gown grow grus guns guru gust guts guys gwyn gyps gyro hoop hoot hops horn host hour hows huns hunt hurt huts hutu hypo inns into ions iron jots joys juno jury just juts knot know knox kory kurt loon loop loot lops lorn loss lost lots lott lout lows lust luvs lvov lynn lynx lyon mono mons mont moon moor moos moot mops morn moro mort moss most mott mown mows muss must mutt myst |
 | K | KILO | -.- | VAT | | nan nap nat nay net nev new nip nit nix oar oat oct oft oho ohs oks pan pap par pas pat paw pay pen pep per pet pew pin pip pis pit ply ran rap rat raw ray rep rev rex rho rio rip san sap sat saw sax say sen set sew sex sgt shy sin sip sir sis sit six sky sly tan tao tap tar tat tax ten tet tex tho thy tin tip tit ubs ump van vat vet vex wan war was wax way wen wet who why win wis wit wiz yap yaw yen yep yes yet yew yip zap zen zip zit |
-| L | LIMA | .-..  | COME | | ankh aped apia arab aral arch area aria arid ashe asia audi avid awed axed axle bode boil bola bold bole boll bomb brad brag bred brie brig brim buck buff bulb bulk bull coal cobb cock coda code coed coif coil coke cola cold cole coma comb come crab crag cram cree crib cuba cube cued cuff cull dock doff doha dole doll dome drab drag dram dual duck dude duel duff duke dull dumb dyed dyke enid enif épée epic eric erie erik erma etch eula evil exam exec eyck eyed fnma foal foam foch foci foil fold folk fred free fuck fuel fuji full fume goad goal gobi goff gold golf grab grad gram greg grid grim guam guff gulf gull gybe hock hoed hoff hold hole home hsbc huck hued huff huge hugh hula hulk hull hume hyde inca inch inge ipad irma isle itch item jock jodi joel joke judd jude knee kobe koch kohl kyle load loaf loam lobe loci lock lode loge loki lola loll lome lube luce luck luke lula lull lyle lyme mock mode mold mole moll much muck muff mule mull |
+| L | LIMA | .-..  | COME | | ankh aped apia arab aral arch area aria arid ashe asia audi avid awed axed axle bode boil bola bold bole boll bomb brad brag bred brie brig brim buck buff bulb bulk bull coal cobb cock coda code coed coif coil coke cola cold cole coma comb come crab crag cram cree crib cuba cube cued cuff cull dock doff doha dole doll dome drab drag dram dual duck dude duel duff duke dull dumb dyed dyke enid enif épée epic eric erie erik erma etch eula evil exam exec eyck eyed fnma foal foam foch foci foil fold folk fred free fuel fuji full fume goad goal gobi goff gold golf grab grad gram greg grid grim guam guff gulf gull gybe hock hoed hoff hold hole home hsbc huck hued huff huge hugh hula hulk hull hume hyde inca inch inge ipad irma isle itch item jock jodi joel joke judd jude knee kobe koch kohl kyle load loaf loam lobe loci lock lode loge loki lola loll lome lube luce luck luke lula lull lyle lyme mock mode mold mole moll much muck muff mule mull |
 | M | MIKE | -- | TV | | no np nu on or os ow ox oz po pt pu rn rs ru rx sn so sq sr st to ts ty up ur us vs wu yo zn zr |
 | N | NOVEMBER | -.  | PG | | na nb nd ne ni ob of oh ok pa pb pd ph pi pl pm ra rb rd re rh sb sc se sh si sm ta tb tc th ti tl tm uh um va we wm xe yb ye |
 | O | OSCAR | --- | WON | | non nor not nov now nun nut ono opt orr our out own pop pot pox pro pry pun pup pus put pyx ron rot row roy run rut son sop sos sot sow sox soy spy stu sty sun sup ton too top tor tot tow toy try tun tut tux two ups urn vow won woo wot wow wry wyo yon you yup zoo |
@@ -28,11 +28,44 @@
 | Z | ZULU | --.. | STAG | | noah node noel nola nome nude nuke null numb once opal opel oral ouch oval ovid owed pock poem poke pole polk poll pram prig prim ptah puck puff pugh puke pull puma pyle quad quid road roam robe rock rode roeg roil role roll rome rube rude rued ruff rule snag soak sock soda sofa soil sold sole soli some spam spec sped stab stag stem such suck sued sufi sulk swab swag swam swig swim toad todd toed toga toil toke told toll tomb tome tram tree trek trig trim tuba tube tuck tull twee twig tyke ural urea urge uric used utah void vole woke wolf womb yock yoda yoga yogi yoke yolk yuck yule zola |
  
  
- ```
- grep "^[[:alpha:]]\{2,4\}$" /usr/share/dict/words | \
- tr 'A-Z' 'a-z' | \
- gawk '{printf("%s ", $1); for (i=1; i<=length($1); i++) {if (index("abcdefghijklmé",substr($1,i,1)) != 0) {printf(".")} else {printf("-")};} printf("\n")}' | sort -u | gawk '$2 == "--.." {printf("%s ", $1)}' | \
- pbcopy
- ```
- 
- Ref: https://www.memorymentor.com/how_to_remember_morse_code.htm
+```
+(
+printf "A ALPHA .-\nB BRAVO -...\nC CHARLIE -.-.\nD DELTA -..\nE ECHO .\nF FOXTROT ..-.\nG GOLF --.\nH HOTEL ....\nI INDIA ..\nJ JULIET .---\nK KILO -.-\nL LIMA .-..\nM MIKE --\nN NOVEMBER -.\nO OSCAR ---\nP PAPA .--.\nQ QUEBEC --.-\nR ROMEO .-.\nS SIERRA ...\nT TANGO -\nU UNIFORM ..-\nV VICTOR ...-\nW WHISKY .--\nX X-RAY -..-\nY YANKEE -.--\nZ ZULU --..\n" | \
+while read A B C; do
+   grep "^[[:alpha:]]\{2,4\}$" /usr/share/dict/words | \
+   tr 'A-Z' 'a-z' | \
+   gawk '{printf("%s ", $1); for (i=1; i<=length($1); i++) {if (index("abcdefghijklmé",substr($1,i,1)) != 0) {printf(".")} else {printf("-")};} printf("\n")}' | sort -u | gawk -vA=$A -vB=$B -vC=$C 'BEGIN {printf("| %s | %s | %s | ", A, B, C)} $2 == C {printf("%s ", $1)} END {printf("|\n")}';
+done
+)
+```
+
+Ref: https://www.memorymentor.com/how_to_remember_morse_code.htm
+
+```
+A	ALPHA	.-
+B	BRAVO	-...
+C	CHARLIE	-.-.
+D	DELTA	-..
+E	ECHO	.
+F	FOXTROT	..-.
+G	GOLF	--.
+H	HOTEL	....
+I	INDIA	..
+J	JULIET	.---
+K	KILO	-.-
+L	LIMA	.-..
+M	MIKE	--
+N	NOVEMBER	-.
+O	OSCAR	---
+P	PAPA	.--.
+Q	QUEBEC	--.-
+R	ROMEO	.-.
+S	SIERRA	...
+T	TANGO	-
+U	UNIFORM	..-
+V	VICTOR	...-
+W	WHISKY	.--
+X	X-RAY	-..-
+Y	YANKEE	-.--
+Z	ZULU	--..
+```
